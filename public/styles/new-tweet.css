@@ -37,4 +37,5 @@ section.new-tweet {
 }
 .new-tweet > form > .counter {
   text-align: end;
+  font-style: italic;
 }
