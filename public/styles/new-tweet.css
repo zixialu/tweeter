@@ -1,0 +1,40 @@
+section.new-tweet {
+  background: #eeeeee;
+  border: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.new-tweet > h2 {
+  border: 0px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: #141414;
+  margin: 8px;
+}
+
+.new-tweet > form {
+  margin: 8px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-tweet > form > * {
+  flex: 1 0;
+}
+
+.new-tweet textarea {
+  margin-bottom: 4px;
+  display: block;
+  padding: 0.25em;
+  flex: 1 100%;
+}
+.new-tweet > form > .counter {
+  text-align: end;
+}
