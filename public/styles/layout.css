@@ -21,8 +21,19 @@ body {
   color: #244751;
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+/* Main */
+main.container {
+  width: 450px;
+  background: white;
+  padding-top: 140px;
+}
