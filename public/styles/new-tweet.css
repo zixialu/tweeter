@@ -10,9 +10,8 @@ section.new-tweet {
 }
 
 .new-tweet > h2 {
-  border: 0px;
   border-bottom: 1px;
-  border-style: solid;
+  border-bottom-style: solid;
   border-color: #141414;
   margin: 8px;
 }
