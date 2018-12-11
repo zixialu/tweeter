@@ -1,7 +1,7 @@
 article.tweet {
   border: 1px;
   border-style: solid;
-  border-color: #141414;
+  border-color: #cccccc;
   border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
@@ -9,9 +9,14 @@ article.tweet {
   margin-top: 1em;
 }
 
+article.tweet:hover {
+  border-color: #141414;
+}
+
 article.tweet > header {
   background: #eeeeee;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start;
