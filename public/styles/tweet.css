@@ -1,0 +1,44 @@
+article.tweet {
+  border: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  margin-top: 1em;
+}
+
+article.tweet > header {
+  background: #eeeeee;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1em;
+}
+
+article.tweet .tweeter-avatar {
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+article.tweet .tweeter-name {
+  margin: 0;
+  margin-inline-start: 0.5em;
+  margin-inline-end: 0.5em;
+  flex: 1;
+}
+
+article.tweet .tweet-content {
+  padding: 1em;
+}
+
+article.tweet > footer {
+  border-top: 1px;
+  border-top-style: solid;
+  border-color: #eeeeee;
+  font-size: 80%;
+  padding: 1em;
+}
