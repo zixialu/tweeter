@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// TODO: Create function to parse the date into a descriptive string
 function createTweetElement(tweetData) {
   return `
     <article class="tweet">
@@ -22,7 +23,7 @@ function createTweetElement(tweetData) {
       </p>
       <footer><span class="tweet-age">${new Date(
         tweetData.created_at
-      )}</span></footer>
+      ).toDateString()}</span></footer>
     </article>
   `;
 }
