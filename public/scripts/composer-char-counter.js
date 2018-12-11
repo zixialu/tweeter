@@ -4,9 +4,9 @@ $(document).ready(function() {
     const characterCounter = $(this).siblings('.counter')[0];
     characterCounter.innerText = remaining;
     if (remaining < 0) {
-      characterCounter.classList.add('limit-exceeded');
+      $(characterCounter).addClass('limit-exceeded');
     } else {
-      characterCounter.classList.remove('limit-exceeded');
+      $(characterCounter).removeClass('limit-exceeded');
     }
   });
 });
