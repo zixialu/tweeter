@@ -24,11 +24,23 @@ article.tweet .tweeter-avatar {
   width: 50px;
 }
 
+article.tweet .baseline-align-text {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+
 article.tweet .tweeter-name {
   margin: 0;
   margin-inline-start: 0.5em;
   margin-inline-end: 0.5em;
   flex: 1;
+}
+
+article.tweet .tweeter-handle {
+  color: gray;
 }
 
 article.tweet .tweet-content {
