@@ -38,3 +38,7 @@ section.new-tweet {
   text-align: end;
   font-style: italic;
 }
+
+.limit-exceeded {
+  color: red;
+}
