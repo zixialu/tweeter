@@ -5,7 +5,7 @@
  */
 
 // Create and return a DOM element representing a tweet article
-// TODO: Create function to parse the date into a descriptive string
+// TODO: Create function to better parse the date or use moment.js
 function createTweetElement(tweetData) {
   return `
     <article class="tweet">
@@ -30,7 +30,7 @@ function createTweetElement(tweetData) {
 }
 
 /*
- * Loops through tweets, calling createTweetElement for each tweet and appends
+ * Loop through tweets, calling createTweetElement for each tweet and appends
  * it to the tweets container
  */
 function renderTweets(tweets) {
