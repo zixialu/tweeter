@@ -27,7 +27,7 @@
   font-size: 200%;
 }
 
-#nav-bar .nav-actions {
+#nav-bar section {
   justify-self: end;
   margin-inline-start: auto;
 }
@@ -37,4 +37,14 @@
   border-style: solid;
   border-color: #656565;
   border-radius: 5px;
+  color: #00a087;
+  background-color: #ebfcff;
+  font-size: 120%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#nav-bar button:hover {
+  color: #141414;
+  background-color: white;
 }

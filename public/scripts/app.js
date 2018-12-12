@@ -53,7 +53,8 @@ function escape(str) {
   return div.innerHTML;
 }
 
-$(document).ready(function() {
+// Get and post tweets
+$(function() {
   const $tweetsContainer = $('#tweets-container');
   const $form = $('#tweet-form');
   const $formText = $('#tweet-form > textarea');
@@ -95,4 +96,15 @@ $(document).ready(function() {
   }
 
   loadTweets();
+});
+
+// Form toggle
+$(function() {
+  const $composeButton = $('#compose-btn');
+  const $newTweet = $('.new-tweet');
+  $composeButton.on('click', function() {
+    // TODO: Toggle compose tweet form
+    console.log('Compose hit');
+    $newTweet.slideToggle(400);
+  });
 });
