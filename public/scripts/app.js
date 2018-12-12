@@ -34,8 +34,9 @@ function createTweetElement(tweetData) {
  * it to the tweets container
  */
 function renderTweets(tweets) {
-  data.forEach(tweet => {
-    $('#tweets-container').append(createTweetElement(tweet));
+  const $tweetsContainer = $('#tweets-container');
+  tweets.forEach(tweet => {
+    $tweetsContainer.append(createTweetElement(tweet));
   });
 }
 
