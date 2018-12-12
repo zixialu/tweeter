@@ -60,8 +60,6 @@ $(function() {
       $tweetTooLong.show();
       return false;
     }
-    $tweetEmpty.hide();
-    $tweetTooLong.hide();
     return true;
   }
 
@@ -79,6 +77,10 @@ $(function() {
   $form.submit(event => {
     event.preventDefault();
     const serialData = $form.serialize();
+
+    // Hide all error messages
+    $tweetEmpty.hide();
+    $tweetTooLong.hide();
 
     // Validation
     if (validate($formText.val())) {
