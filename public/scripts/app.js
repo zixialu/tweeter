@@ -32,19 +32,6 @@ function createTweetElement(tweetData) {
   `;
 }
 
-// Validate a tweet's content, returning true if it is valid.
-function validate(content) {
-  if (!content) {
-    alert('Error: You cannot post an empty tweet!');
-    return false;
-  } else if (content.length > 140) {
-    alert('Error: Tweet is too long!');
-    return false;
-  }
-
-  return true;
-}
-
 // Escape input text.
 // FIXME: encodeURIComponent on post?
 function escape(str) {
@@ -58,6 +45,25 @@ $(function() {
   const $tweetsContainer = $('#tweets-container');
   const $form = $('#tweet-form');
   const $formText = $('#tweet-form > textarea');
+  const $tweetEmpty = $('#tweet-empty');
+  const $tweetTooLong = $('#tweet-too-long');
+
+  // Validate a tweet's content, returning true if it is valid.
+  // TODO: Use setCustomValidity?
+  function validate(content) {
+    if (!content) {
+      // Error: You cannot post an empty tweet!
+      $tweetEmpty.show();
+      return false;
+    } else if (content.length > 140) {
+      // Error: Tweet is too long!
+      $tweetTooLong.show();
+      return false;
+    }
+    $tweetEmpty.hide();
+    $tweetTooLong.hide();
+    return true;
+  }
 
   /*
    * Loop through tweets, calling createTweetElement for each tweet and appends
@@ -78,7 +84,6 @@ $(function() {
     if (validate($formText.val())) {
       $formText.val('');
       $.post('/tweets', serialData, () => {
-        console.log('Posted tweet');
         loadTweets();
       });
     }

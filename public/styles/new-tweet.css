@@ -40,5 +40,14 @@ section.new-tweet {
 }
 
 .limit-exceeded {
-  color: red;
+  color: #f55044;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f55044;
+  color: white;
+  margin-bottom: 0.33em;
+
+  display: none;
 }
