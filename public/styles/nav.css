@@ -10,17 +10,24 @@
   padding-left: 2em;
   padding-right: 2em;
   z-index: 1;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #nav-bar .logo {
-  float: left;
   width: 80px;
   height: 80px;
 }
 
 #nav-bar .header {
-  float: left;
   margin-left: 10px;
-  line-height: 80px;
   font-size: 200%;
+}
+
+#nav-bar .nav-actions {
+  justify-self: end;
+  margin-inline-start: auto;
 }
