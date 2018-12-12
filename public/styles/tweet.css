@@ -33,6 +33,7 @@ article.tweet .tweeter-avatar {
   border-radius: 5px;
   height: 50px;
   width: 50px;
+  flex: 1 0 auto;
 }
 
 article.tweet .baseline-align-text {
