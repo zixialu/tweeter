@@ -31,3 +31,10 @@
   justify-self: end;
   margin-inline-start: auto;
 }
+
+#nav-bar button {
+  border: 1px;
+  border-style: solid;
+  border-color: #656565;
+  border-radius: 5px;
+}
