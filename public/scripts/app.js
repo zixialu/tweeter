@@ -46,6 +46,7 @@ function validate(content) {
 }
 
 // Escape input text.
+// FIXME: encodeURIComponent on post?
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
