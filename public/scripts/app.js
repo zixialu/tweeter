@@ -29,17 +29,31 @@ function createTweetElement(tweetData) {
   `;
 }
 
+// Validate a tweet's content, returning true if it is valid.
+function validate(content) {
+  if (!content) {
+    alert('Error: You cannot post an empty tweet!');
+    return false;
+  } else if (content.length > 140) {
+    alert('Error: Tweet is too long!');
+    return false;
+  }
+
+  return true;
+}
+
 $(document).ready(function() {
   const $tweetsContainer = $('#tweets-container');
   const $form = $('#tweet-form');
   const $formText = $('#tweet-form > textarea');
+
   /*
    * Loop through tweets, calling createTweetElement for each tweet and appends
    * it to the tweets container
    */
   function renderTweets(tweets) {
     tweets.forEach(tweet => {
-      $tweetsContainer.append(createTweetElement(tweet));
+      $tweetsContainer.prepend(createTweetElement(tweet));
     });
   }
 
@@ -49,31 +63,14 @@ $(document).ready(function() {
     const serialData = $form.serialize();
 
     // Validation
-    const tweet = {
-      content: $formText[0].value
-    };
-    if (validate(tweet)) {
-      $formText.value = '';
+    if (validate($formText.val())) {
+      $formText.val('');
       $.post('/tweets', serialData, () => {
         console.log('Posted tweet');
         loadTweets();
       });
     }
   });
-
-  // Validate a tweet, returning true if the tweet is valid.
-  // TODO: is there a better way using serial data as input?
-  function validate(tweet) {
-    if (!tweet.content) {
-      alert('Error: You cannot post an empty tweet!');
-      return false;
-    } else if (tweet.content.length > 140) {
-      alert('Error: Tweet is too long!');
-      return false;
-    }
-
-    return true;
-  }
 
   // Get tweets from db and pass them into renderTweets
   /*
