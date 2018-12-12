@@ -47,6 +47,7 @@ $(function() {
   const $formText = $('#tweet-form > textarea');
   const $tweetEmpty = $('#tweet-empty');
   const $tweetTooLong = $('#tweet-too-long');
+  const $characterCounter = $('#tweet-form .counter');
 
   // Validate a tweet's content, returning true if it is valid.
   // TODO: Use setCustomValidity?
@@ -73,6 +74,13 @@ $(function() {
     });
   }
 
+  // Reset char counter for when a form is submitted
+  function resetCharacterCounter() {
+    console.log($characterCounter);
+    $characterCounter.text(140);
+    $characterCounter.removeClass('limit-exceeded');
+  }
+
   // Post tweet to db
   $form.submit(event => {
     event.preventDefault();
@@ -85,6 +93,8 @@ $(function() {
     // Validation
     if (validate($formText.val())) {
       $formText.val('');
+      // Make sure the char counter is reset
+      resetCharacterCounter();
       $.post('/tweets', serialData, () => {
         loadTweets();
       });
