@@ -96,15 +96,14 @@ $(function() {
   }
 
   loadTweets();
-});
 
-// Form toggle
-$(function() {
+  // Form toggle
   const $composeButton = $('#compose-btn');
   const $newTweet = $('.new-tweet');
   $composeButton.on('click', function() {
-    // TODO: Toggle compose tweet form
     console.log('Compose hit');
     $newTweet.slideToggle(400);
+    // TODO: Blur when collapsing?
+    $formText.focus();
   });
 });
