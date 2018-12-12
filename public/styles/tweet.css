@@ -57,6 +57,7 @@ article.tweet .tweeter-handle {
 
 article.tweet .tweet-content {
   padding: 1em;
+  word-break: break-word;
 }
 
 article.tweet > footer {
