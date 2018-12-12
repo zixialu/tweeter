@@ -23,7 +23,7 @@ function createTweetElement(tweetData) {
         </div>
       </header>
       <p class="tweet-content">
-        ${tweetData.content.text}
+        ${escape(tweetData.content.text)}
       </p>
       <footer><span class="tweet-age">${new Date(
         tweetData.created_at
@@ -43,6 +43,13 @@ function validate(content) {
   }
 
   return true;
+}
+
+// Escape input text.
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 $(document).ready(function() {
