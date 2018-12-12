@@ -44,7 +44,7 @@ section.new-tweet {
 }
 
 .alert {
-  padding: 20px;
+  padding: 1em;
   background-color: #f55044;
   color: white;
   margin-bottom: 0.33em;
