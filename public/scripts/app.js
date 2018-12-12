@@ -4,6 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Tracks the time of the last tweet fetch.
+let lastFetched = new Date(0);
+
 // Create and return a DOM element representing a tweet article
 // TODO: Create function to better parse the date or use moment.js
 function createTweetElement(tweetData) {
@@ -72,14 +75,14 @@ $(document).ready(function() {
     }
   });
 
-  // Get tweets from db and pass them into renderTweets
-  /*
-   * TODO: Get only new tweets or else make renderTweets clear old tweets
-   * before rerendering
-   */
+  // Get new tweets from db and pass them into renderTweets
   function loadTweets() {
     $.get('/tweets', data => {
-      renderTweets(data);
+      const newData = data.filter(tweet => {
+        return tweet.created_at > lastFetched;
+      });
+      lastFetched = Date.now();
+      renderTweets(newData);
     });
   }
 
