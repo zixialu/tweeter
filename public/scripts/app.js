@@ -87,9 +87,7 @@ $(function() {
   // Get new tweets from db and pass them into renderTweets
   function loadTweets() {
     $.get('/tweets', data => {
-      const newData = data.filter(tweet => {
-        return tweet.created_at > lastFetched;
-      });
+      const newData = data.filter(tweet => tweet.created_at > lastFetched);
       lastFetched = Date.now();
       renderTweets(newData);
     });
@@ -101,7 +99,6 @@ $(function() {
   const $composeButton = $('#compose-btn');
   const $newTweet = $('.new-tweet');
   $composeButton.on('click', function() {
-    console.log('Compose hit');
     $newTweet.slideToggle(400);
     // TODO: Blur when collapsing?
     $formText.focus();
