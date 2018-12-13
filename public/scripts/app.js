@@ -111,11 +111,14 @@ $(function() {
     });
   }
 
+  //Start with new tweet form hidden
+  const $newTweet = $('.new-tweet');
+  $newTweet.hide();
+  // Load initial tweets
   loadTweets();
 
   // Form toggle
   const $composeButton = $('#compose-btn');
-  const $newTweet = $('.new-tweet');
   $composeButton.on('click', function() {
     $newTweet.slideToggle(400);
     // TODO: Blur when collapsing?
