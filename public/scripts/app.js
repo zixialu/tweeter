@@ -46,8 +46,6 @@ $(function() {
   const $form = $('#tweet-form');
   const $formText = $('#tweet-form > textarea');
   const $errorMessage = $('.new-tweet .alert');
-  // const $tweetEmpty = $('#tweet-empty');
-  // const $tweetTooLong = $('#tweet-too-long');
   const $characterCounter = $('#tweet-form .counter');
 
   // Validate a tweet's content, returning true if it is valid.
@@ -89,9 +87,7 @@ $(function() {
     event.preventDefault();
     const serialData = $form.serialize();
 
-    // Hide all error messages
-    // $tweetEmpty.hide();
-    // $tweetTooLong.hide();
+    // Hide error message
     $errorMessage.hide();
 
     // Validation
