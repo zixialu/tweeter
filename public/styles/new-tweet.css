@@ -40,6 +40,22 @@ section.new-tweet {
   font-style: italic;
 }
 
+/* This styles the submit form button similar to nav-bar buttons
+.new-tweet > form > input[type='submit'] {
+  border: 1px;
+  border-style: solid;
+  border-color: #656565;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: #ebfcff;
+  font-size: 120%;
+}
+
+.new-tweet > form > input[type='submit']:hover {
+  color: #141414;
+  background-color: white;
+} */
+
 .limit-exceeded {
   color: #f55044;
 }
