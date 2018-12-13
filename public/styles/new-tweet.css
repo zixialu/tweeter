@@ -7,6 +7,7 @@ section.new-tweet {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
+  margin-top: 60px;
 }
 
 .new-tweet > h2 {
