@@ -32,7 +32,7 @@ function createTweetElement(tweetData) {
         <section class="tweet-actions">
           <i class="flag material-icons md-18">flag</i>
           <i class="retweet material-icons md-18">repeat</i>
-          <i class="like material-icons md-18">thumb_up</i>
+          <i class="like material-icons md-18">favorite</i>
         </section>
       </footer>
     </article>
