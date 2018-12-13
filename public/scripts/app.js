@@ -45,8 +45,9 @@ $(function() {
   const $tweetsContainer = $('#tweets-container');
   const $form = $('#tweet-form');
   const $formText = $('#tweet-form > textarea');
-  const $tweetEmpty = $('#tweet-empty');
-  const $tweetTooLong = $('#tweet-too-long');
+  const $errorMessage = $('.new-tweet .alert');
+  // const $tweetEmpty = $('#tweet-empty');
+  // const $tweetTooLong = $('#tweet-too-long');
   const $characterCounter = $('#tweet-form .counter');
 
   // Validate a tweet's content, returning true if it is valid.
@@ -54,11 +55,13 @@ $(function() {
   function validate(content) {
     if (!content) {
       // Error: You cannot post an empty tweet!
-      $tweetEmpty.show();
+      $errorMessage.text('Error: You cannot post an empty tweet!');
+      $errorMessage.show();
       return false;
     } else if (content.length > 140) {
       // Error: Tweet is too long!
-      $tweetTooLong.show();
+      $errorMessage.text('Error: Tweet is too long!');
+      $errorMessage.show();
       return false;
     }
     return true;
@@ -87,8 +90,9 @@ $(function() {
     const serialData = $form.serialize();
 
     // Hide all error messages
-    $tweetEmpty.hide();
-    $tweetTooLong.hide();
+    // $tweetEmpty.hide();
+    // $tweetTooLong.hide();
+    $errorMessage.hide();
 
     // Validation
     if (validate($formText.val())) {
