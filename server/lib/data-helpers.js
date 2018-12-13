@@ -21,10 +21,11 @@ module.exports = function makeDataHelpers(db) {
     //     callback(null, db.tweets.sort(sortNewestFirst));
     //   });
     // }
-    getTweets: function getTweets(callback) {
+    getTweets: function(callback) {
       db.collection('tweets')
         .find()
         .toArray((err, tweets) => {
+          console.log('getTweets' + tweets);
           if (err) {
             return callback(err);
           }
