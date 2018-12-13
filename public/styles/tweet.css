@@ -66,4 +66,27 @@ article.tweet > footer {
   border-color: #eeeeee;
   font-size: 80%;
   padding: 1em;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article.tweet .tweet-age {
+  line-height: 24pt;
+}
+
+article.tweet .tweet-actions {
+  color: #00a087;
+  margin-inline-start: auto;
+  display: none;
+}
+
+article.tweet .tweet-actions > * {
+  margin-inline-start: 0.33em;
+}
+
+article.tweet:hover .tweet-actions {
+  display: inline;
 }

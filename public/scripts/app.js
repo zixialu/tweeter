@@ -25,9 +25,16 @@ function createTweetElement(tweetData) {
       <p class="tweet-content">
         ${escape(tweetData.content.text)}
       </p>
-      <footer><span class="tweet-age">${new Date(
-        tweetData.created_at
-      ).toDateString()}</span></footer>
+      <footer>
+        <span class="tweet-age">${new Date(
+          tweetData.created_at
+        ).toDateString()}</span>
+        <section class="tweet-actions">
+          <i class="flag material-icons md-18">flag</i>
+          <i class="retweet material-icons md-18">repeat</i>
+          <i class="like material-icons md-18">thumb_up</i>
+        </section>
+      </footer>
     </article>
   `;
 }
