@@ -102,6 +102,7 @@ $(function() {
   });
 
   // Get new tweets from db and pass them into renderTweets
+  // TODO: Do this filtering on the mongo side to reduce data
   function loadTweets() {
     $.get('/tweets', data => {
       const newData = data.filter(tweet => tweet.created_at > lastFetched);
