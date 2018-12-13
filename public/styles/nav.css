@@ -40,8 +40,8 @@
   color: #00a087;
   background-color: #ebfcff;
   font-size: 120%;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.66em;
+  padding-bottom: 0.66em;
 }
 
 #nav-bar button:hover {
