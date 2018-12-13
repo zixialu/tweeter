@@ -4,6 +4,9 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Product Screenshots
 
+![Screenshot of Tweeter](https://raw.githubusercontent.com/zixialu/tweeter/master/docs/tweeter-main.png)
+![Screenshot of compose form](https://raw.githubusercontent.com/zixialu/tweeter/master/docs/tweeter-compose.png)
+
 ## Getting Started
 
 1. Install dependencies using the `npm install` command.
