@@ -19,6 +19,7 @@ Tweeter is a simple, single-page Twitter clone.
 - Node 5.10.x or above
 - MongoDB 2.2.x
 - Express
+- EJS
 - body-parser
 - chance
 - md5
