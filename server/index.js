@@ -6,6 +6,7 @@ const PORT = 8080;
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+require('dotenv').config();
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -37,7 +37,7 @@ module.exports = function makeDataHelpers(db) {
             return callback(err);
           }
 
-          if (user || credentials.password === user.password) {
+          if (user && credentials.password === user.password) {
             // User exists with matching credentials; login succeeded
             return callback(null, user);
           }
