@@ -132,3 +132,62 @@ $(function() {
     $formText.focus();
   });
 });
+
+// Modals
+$(function() {
+  // Login Modal
+  const $loginButton = $('#login-btn');
+  const $loginModal = $('#login');
+  const $loginForm = $('#login form');
+  $loginModal.hide();
+  // Show modal
+  console.log($loginModal);
+  $loginButton.on('click', function() {
+    $loginModal.show();
+  });
+  // Hide modal on click away
+  $loginModal.on('click', function(event) {
+    if ($(event.target).is($loginModal)) {
+      $loginModal.hide();
+    }
+  });
+  // Post login override
+  $loginForm.submit(event => {
+    event.preventDefault();
+    const serialData = $loginForm.serialize();
+
+    // Hide error message
+    // $errorMessage.hide();
+
+    // Validation
+    // if (validate($formText.val())) {
+    //   $formText.val('');
+    //   // Make sure the char counter is reset
+    //   resetCharacterCounter();
+    //   $.post('/tweets', serialData, () => {
+    //     loadTweets();
+    //   });
+    // }
+
+    // TODO: Change this to PUT
+    $.post('/login', serialData, () => {
+      // TODO: Process login response (set the cookie)
+    });
+  });
+
+  // Register Modal
+  const $registerButton = $('#register-btn');
+  const $registerModal = $('#register');
+  $registerModal.hide();
+  // Show modal
+  console.log($registerModal);
+  $registerButton.on('click', function() {
+    $registerModal.show();
+  });
+  // Hide modal on click away
+  $registerModal.on('click', function(event) {
+    if ($(event.target).is($registerModal)) {
+      $registerModal.hide();
+    }
+  });
+});

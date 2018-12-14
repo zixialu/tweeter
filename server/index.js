@@ -5,9 +5,19 @@
 const PORT = 8080;
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: [process.env.COOKIE_SESSION_KEY],
+    // Cookie Options
+    // Persist cookie for 30 days
+    maxAge: 30 * 24 * 60 * 60 * 1000
+  })
+);
 app.use(express.static('public'));
 
 const { MongoClient } = require('mongodb');
@@ -22,8 +32,6 @@ MongoClient.connect(
     }
     // We have a connection to the "tweeter" db, starting here.
     console.log(`Connected to mongodb: ${MONGODB_URI}`);
-
-    console.log('DB is ' + db);
 
     // The `data-helpers` module provides an interface to the database of tweets.
     // This simple interface layer has a big benefit: we could switch out the
@@ -40,6 +48,14 @@ MongoClient.connect(
 
     // Mount the tweets routes at the "/tweets" path prefix:
     app.use('/tweets', tweetsRoutes);
+
+    // Same as above but for logging in
+    const loginRoutes = require('./routes/login')(DataHelpers);
+    app.use('/login', loginRoutes);
+
+    // Same as above but for logging in
+    const registerRoutes = require('./routes/register')(DataHelpers);
+    app.use('/register', registerRoutes);
   }
 );
 

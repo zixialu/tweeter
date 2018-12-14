@@ -18,6 +18,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/modal.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
@@ -38,11 +39,41 @@
       <img class="logo" src="/images/bird.png" />
       <span class="header">Tweeter</span>
       <section>
+        <button id="login-btn">
+          <i class="material-icons md-18">person</i> Login
+        </button>
+        <button id="register-btn">
+          <i class="material-icons md-18">add</i> Register
+        </button>
         <button id="compose-btn">
           <i class="material-icons md-18">create</i> Compose
         </button>
+        <button id="logout-btn">
+          <i class="material-icons md-18">person</i> Logout
+        </button>
       </section>
     </nav>
+
+    <!-- Login form modal -->
+    <section id="login" class="modal">
+      <form action="/login" method="POST" class="modal-container">
+        <h2>Login</h2>
+        <input type="text" name="handle" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" value="Login" />
+      </form>
+    </section>
+
+    <!-- Registration form modal -->
+    <section id="register" class="modal">
+      <form action="/register" method="POST" class="modal-container">
+        <h2>Register</h2>
+        <input type="text" name="handle" placeholder="Username" />
+        <input type="text" name="name" placeholder="Full Name" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" value="Register" />
+      </form>
+    </section>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
