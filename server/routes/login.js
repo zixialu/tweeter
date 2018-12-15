@@ -48,7 +48,7 @@ module.exports = function(DataHelpers) {
           avatars: user.avatars
         });
       } else {
-        res.status(401).json();
+        res.status(201).json();
       }
     });
   });

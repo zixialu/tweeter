@@ -225,7 +225,7 @@ $(function() {
         console.log('Cookie is invalid');
         $(document).removeData('user');
       }
-      console.log($(document).data());
+      console.log('document data ' + $(document).data());
       callback();
     });
   }
