@@ -1,5 +1,7 @@
 'use strict';
 
+const uuidv4 = require('uuid/v4');
+
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
   return {
@@ -46,6 +48,18 @@ module.exports = function makeDataHelpers(db) {
           return callback(null, null);
         }
       );
+    },
+
+    getUser: function getUserFromHandle(userId, callback) {
+      // Try to find user record
+      console.log(userId);
+      db.collection('users').findOne({ uuid: userId }, (err, user) => {
+        if (err) {
+          return callback(err);
+        } else {
+          return callback(null, user);
+        }
+      });
     }
   };
 };

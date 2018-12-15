@@ -30,3 +30,4 @@ Tweeter is a simple, single-page Twitter clone.
 - cookie-session
 - dotenv
 - md5
+- uuid

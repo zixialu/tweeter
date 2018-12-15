@@ -54,7 +54,11 @@ MongoClient.connect(
     const loginRoutes = require('./routes/login')(DataHelpers);
     app.use('/login', loginRoutes);
 
-    // Same as above but for logging in
+    // Log out
+    const logoutRoutes = require('./routes/logout')();
+    app.use('/logout', logoutRoutes);
+
+    // Register
     const registerRoutes = require('./routes/register')(DataHelpers);
     app.use('/register', registerRoutes);
   }

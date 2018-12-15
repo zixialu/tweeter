@@ -131,10 +131,8 @@ $(function() {
     // TODO: Blur when collapsing?
     $formText.focus();
   });
-});
 
-// Modals
-$(function() {
+  // User authentication
   // Login Modal
   const $loginButton = $('#login-btn');
   const $loginModal = $('#login');
@@ -155,16 +153,20 @@ $(function() {
   $loginForm.submit(event => {
     event.preventDefault();
     const serialData = $loginForm.serialize();
-
     // TODO: Change this to PUT
     $.post('/login', serialData, () => {
       console.log('Logged in!');
+      // Handle login ui changes
+      updateLocalUserData(() => {
+        setNavbarForLoggedIn(true);
+      });
     });
   });
 
   // Register Modal
   const $registerButton = $('#register-btn');
   const $registerModal = $('#register');
+  const $registerForm = $('#register form');
   $registerModal.hide();
   // Show modal
   console.log($registerModal);
@@ -175,6 +177,68 @@ $(function() {
   $registerModal.on('click', function(event) {
     if ($(event.target).is($registerModal)) {
       $registerModal.hide();
+    }
+  });
+
+  // Logout
+  const $logoutButton = $('#logout-btn');
+  $logoutButton.on('click', function() {
+    // TODO: Change this to PUT
+    $.post('/logout', () => {
+      console.log('Logged out!');
+      // Handle logout ui changes
+      updateLocalUserData(() => {
+        setNavbarForLoggedIn(false);
+      });
+    });
+  });
+
+  // UI helpers
+  // Change page for a logged-in user
+  function setNavbarForLoggedIn(isLoggedIn) {
+    if (isLoggedIn) {
+      $loginButton.hide();
+      $registerButton.hide();
+      $composeButton.show();
+      $logoutButton.show();
+      $loginModal.hide();
+      $registerModal.hide();
+    } else {
+      $loginButton.show();
+      $registerButton.show();
+      $composeButton.hide();
+      $logoutButton.hide();
+      $loginModal.hide();
+      $registerModal.hide();
+    }
+  }
+
+  function updateLocalUserData(callback) {
+    $.getJSON('/login/validate-cookie', user => {
+      if (user) {
+        // User is logged in
+        // TODO: Is there somewhere better to attach this data?
+        console.log('Cookie is valid');
+        $(document).data('user', user);
+      } else {
+        // Not logged in
+        console.log('Cookie is invalid');
+        $(document).removeData('user');
+      }
+      console.log($(document).data());
+      callback();
+    });
+  }
+
+  // Check on page load if cookie is valid
+  // FIXME: This is a mess
+  updateLocalUserData(() => {
+    console.log('Verify cookie on page load');
+    // TODO: Initialize navbar state
+    if ($(document).data('user')) {
+      setNavbarForLoggedIn(true);
+    } else {
+      setNavbarForLoggedIn(false);
     }
   });
 });

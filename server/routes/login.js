@@ -27,8 +27,28 @@ module.exports = function(DataHelpers) {
         res.status(401).send();
       } else {
         console.log('Valid user credentials');
-        req.session.userId = user['_id'];
+        req.session.userId = user.uuid;
         res.status(201).send();
+      }
+    });
+  });
+
+  // Validates a user's cookie, returning user information from db if valid
+  // TODO: Change this to PUT
+  // TODO: Should this be in its own route to be more RESTful?
+  loginRoutes.get('/validate-cookie', function(req, res) {
+    DataHelpers.getUser(req.session.userId, (err, user) => {
+      console.log('datahelpers got user ' + user);
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else if (user) {
+        res.status(201).json({
+          handle: user.handle,
+          name: user.name,
+          avatars: user.avatars
+        });
+      } else {
+        res.status(401).json();
       }
     });
   });
