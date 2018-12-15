@@ -28,7 +28,6 @@ module.exports = function(DataHelpers) {
       } else {
         console.log('Valid user credentials');
         req.session.userId = user['_id'];
-        // FIXME: Send the encrypted id, not the unencrypted id
         res.status(201).send();
       }
     });
