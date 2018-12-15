@@ -23,7 +23,7 @@ module.exports = function(DataHelpers) {
       } else if (!user) {
         // TODO: Handle bad credentials
         console.log('Invalid user credentials');
-        req.session.userId = null;
+        req.session = null;
         res.status(401).send();
       } else {
         console.log('Valid user credentials');

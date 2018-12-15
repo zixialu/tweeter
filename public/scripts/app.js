@@ -156,21 +156,8 @@ $(function() {
     event.preventDefault();
     const serialData = $loginForm.serialize();
 
-    // Hide error message
-    // $errorMessage.hide();
-    // Validation
-    // if (validate($formText.val())) {
-    //   $formText.val('');
-    //   // Make sure the char counter is reset
-    //   resetCharacterCounter();
-    //   $.post('/tweets', serialData, () => {
-    //     loadTweets();
-    //   });
-    // }
-
     // TODO: Change this to PUT
     $.post('/login', serialData, () => {
-      // TODO: Process login response (set the cookie)
       console.log('Logged in!');
     });
   });
