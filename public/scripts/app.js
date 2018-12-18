@@ -84,7 +84,6 @@ $(function() {
 
   // Reset char counter for when a form is submitted
   function resetCharacterCounter() {
-    console.log($characterCounter);
     $characterCounter.text(140);
     $characterCounter.removeClass('limit-exceeded');
   }
@@ -139,7 +138,6 @@ $(function() {
   const $loginForm = $('#login form');
   $loginModal.hide();
   // Show modal
-  console.log($loginModal);
   $loginButton.on('click', function() {
     $loginModal.show();
   });
@@ -169,7 +167,6 @@ $(function() {
   const $registerForm = $('#register form');
   $registerModal.hide();
   // Show modal
-  console.log($registerModal);
   $registerButton.on('click', function() {
     $registerModal.show();
   });
@@ -225,7 +222,6 @@ $(function() {
         console.log('Cookie is invalid');
         $(document).removeData('user');
       }
-      console.log('document data ' + $(document).data());
       callback();
     });
   }
