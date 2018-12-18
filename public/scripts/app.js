@@ -215,7 +215,7 @@ $(function() {
 
   function updateLocalUserData(callback) {
     $.getJSON('/login/validate-cookie', user => {
-      if (user) {
+      if (user.handle) {
         // User is logged in
         // TODO: Is there somewhere better to attach this data?
         console.log('Cookie is valid');

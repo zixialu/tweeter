@@ -48,7 +48,16 @@ module.exports = function(DataHelpers) {
           avatars: user.avatars
         });
       } else {
-        res.status(201).json();
+        console.log('no error in validation but no cookie');
+        res.status(201).json({
+          handle: null,
+          name: null,
+          avatars: {
+            small: null,
+            medium: null,
+            lerge: null
+          }
+        });
       }
     });
   });

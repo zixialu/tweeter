@@ -52,7 +52,7 @@ module.exports = function makeDataHelpers(db) {
 
     getUser: function getUserFromHandle(userId, callback) {
       // Try to find user record
-      console.log(userId);
+      console.log('userId is ' + userId);
       db.collection('users').findOne({ uuid: userId }, (err, user) => {
         if (err) {
           return callback(err);
