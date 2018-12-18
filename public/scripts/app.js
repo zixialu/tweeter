@@ -234,7 +234,6 @@ $(function() {
   // FIXME: This is a mess
   updateLocalUserData(() => {
     console.log('Verify cookie on page load');
-    // TODO: Initialize navbar state
     if ($(document).data('user')) {
       setNavbarForLoggedIn(true);
     } else {
