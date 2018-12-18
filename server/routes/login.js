@@ -38,7 +38,6 @@ module.exports = function(DataHelpers) {
   // TODO: Should this be in its own route to be more RESTful?
   loginRoutes.get('/validate-cookie', function(req, res) {
     DataHelpers.getUser(req.session.userId, (err, user) => {
-      console.log('datahelpers got user ' + user);
       if (err) {
         res.status(500).json({ error: err.message });
       } else if (user) {
@@ -48,7 +47,6 @@ module.exports = function(DataHelpers) {
           avatars: user.avatars
         });
       } else {
-        console.log('no error in validation but no cookie');
         res.status(201).json({
           handle: null,
           name: null,
